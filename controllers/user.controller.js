@@ -1,4 +1,3 @@
-
 let users = require('../data/users')
 let debts = require('../data/debts')
 let newUserDebts = require('../data/debtsCreation')
@@ -14,7 +13,7 @@ class UserController {
          email: rec.body.email,
          password: rec.body.password
       }
-      const newUserDept = newUserDebts(newUserID);
+      const newUserDept = newUserDebts();
       users.push(newUser);
       debts.push(newUserDept);
       res.json({createUser: 'Ok'});
@@ -70,7 +69,6 @@ class UserController {
          }
       }
    }
-
 }
 
 module.exports = new UserController()
