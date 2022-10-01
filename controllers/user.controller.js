@@ -55,18 +55,13 @@ class UserController {
       }
    }
    deleteUser(rec, res){
-      const user_id = rec.params.id;
-      if(user_id <= 0 || user_id > users.length){
+      const index = rec.params.id;
+      if(index < 0 || index > users.length){
          res.json({error: 'error: wrong id'})          
       } else {
-         for(let i = 0; i<users.length; i++){
-            if(users[i].id == user_id){
-               users.pop(users[i])
-               debts.pop(debts[i])
-               res.json(users)
-               break;
-            }         
-         }
+         users.pop(users[index])
+         debts.pop(debts[index])
+         res.json(users)
       }
    }
 }
