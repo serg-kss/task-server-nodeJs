@@ -1,5 +1,6 @@
 let debts = require('../data/debts')
 let services = require('../data/services')
+let debtsCreator = require('../data/debtsCreation1')
 
 
 class DebtsController{
@@ -7,10 +8,10 @@ class DebtsController{
 
    createService(rec, res){     
       const newService = {         
-         service: rec.body.services,
+         debt: rec.body.debt,
       }
       services.push(newService);
-
+      debtsCreator();
       res.json(services);
    }
 
