@@ -5,7 +5,9 @@ let newUserDebts = require('../data/debtsCreation')
 class UserController {
 
    createUser(rec, res){
+
       let newUserID = users[users.length-1].id + 1;
+
       const newUser = {
          id: newUserID,
          name: rec.body.name, 
@@ -13,14 +15,18 @@ class UserController {
          email: rec.body.email,
          password: rec.body.password
       }
+
       const newUserDept = newUserDebts();
       users.push(newUser);
       debts.push(newUserDept);
       res.json({createUser: 'Ok'});
    }
+
+
    getUsers(rec, res){
-      res.json(users)
+      res.json(users);
    }
+
 
    getOneUser(rec, res){
       const user_id = rec.params.id;
@@ -34,6 +40,8 @@ class UserController {
          }
       }
    }
+
+
    updateUser(rec, res){
       const user_id = rec.params.id;     
       if(user_id <= 0 || user_id > users.length){
@@ -54,6 +62,8 @@ class UserController {
          }
       }
    }
+
+   
    deleteUser(rec, res){
       const index = rec.params.id;
       if(index < 0 || index > users.length){

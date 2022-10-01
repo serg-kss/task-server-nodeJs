@@ -1,4 +1,3 @@
-
 let users = require('../data/users')
 
 class AuthController {
@@ -14,9 +13,8 @@ class AuthController {
          if(users[i].email == authentication.email && users[i].password == authentication.password){
             res.json([users[i], {auth: 'Ok'}])
          }       
-      } 
-           
-      res.json({auth: 'Wrong data, try again'})                  
+      }    
+      res.json([{auth: 'Wrong data, try again'}])                  
    }
 }
 

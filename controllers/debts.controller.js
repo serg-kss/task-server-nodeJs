@@ -29,13 +29,12 @@ class DebtsController{
    }
 
    getServices(rec, res){
-      res.json(services)
+      res.json(services);
    }
 
    getDebts(rec, res){
-      res.json(debts)
+      res.json(debts);
    }
-
 }
 
 module.exports = new DebtsController()

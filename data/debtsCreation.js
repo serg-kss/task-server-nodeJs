@@ -11,7 +11,7 @@ function debtCreation (){
       arr[i]={
          debt_sum: random(1,3000),
          debt_date: '21.05.2022',
-         informed: 'yes'};     
+         informed: 'да'};     
    }
    return arr;
 }
