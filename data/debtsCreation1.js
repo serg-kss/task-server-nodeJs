@@ -1,5 +1,7 @@
 let users = require('../data/users')
 let debts = require('../data/debts')
+
+
 const random = (min, max) => {
    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -14,4 +16,5 @@ function debtCreation1 (){
          informed: 'да'})
    }
 }
+
 module.exports = debtCreation1

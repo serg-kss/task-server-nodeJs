@@ -1,5 +1,6 @@
 let users = require('../data/users')
 
+
 class AuthController {
 
    login(rec, res){

@@ -2,6 +2,7 @@ let users = require('../data/users')
 let debts = require('../data/debts')
 let newUserDebts = require('../data/debtsCreation')
 
+
 class UserController {
 
    createUser(rec, res){
@@ -22,11 +23,9 @@ class UserController {
       res.json({createUser: 'Ok'});
    }
 
-
    getUsers(rec, res){
       res.json(users);
    }
-
 
    getOneUser(rec, res){
       const user_id = rec.params.id;
@@ -40,7 +39,6 @@ class UserController {
          }
       }
    }
-
 
    updateUser(rec, res){
       const user_id = rec.params.id;     
@@ -62,7 +60,6 @@ class UserController {
          }
       }
    }
-
    
    deleteUser(rec, res){
       const index = rec.params.id;
