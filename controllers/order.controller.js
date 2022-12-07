@@ -1,4 +1,8 @@
 const Model = require("../models/orders")
+const TelegramBot = require('node-telegram-bot-api')
+const token = 'xxxxx:xxxxxxAxxAxxFxxixxxAx-xxxxxxxxxxxxx'
+const bot = new TelegramBot(token, {polling: true});
+const chatId = 1234567890123;
 
 
 class OrderController{
@@ -20,6 +24,16 @@ class OrderController{
          })
          await new_order.save()
          res.json({createOrder: 'Ok'});
+         bot.sendMessage(
+            chatId,
+            `New order was made №:${new_order.order_num}: 
+            - Buyer:  ${new_order.name}; 
+            - Phone:  ${new_order.phone}; 
+            - Mehod:  ${new_order.method}; 
+            - Post:  ${new_order.post_data}; 
+            - Goods:  ${new_order.goods}; 
+            - Total:  ${new_order.amount};`
+         );
       }catch(e){
          res.json({createOrder: 'Not Ok'});
       }
