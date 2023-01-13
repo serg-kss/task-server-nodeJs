@@ -17,10 +17,15 @@ class OrderController{
    }
 
    async  createOrder(rec, res){
-      const data = rec.body.name;
       try{
          const new_order = new Model({
-            name: data,
+            order_num: rec.body.order_num,
+            name: rec.body.name,
+            phone: rec.body.phone,
+            method: rec.body.method,
+            post_data: rec.body.post_data,
+            goods: rec.body.goods,
+            amount: rec.body.amount
          })
          await new_order.save()
          res.json({createOrder: 'Ok'});
