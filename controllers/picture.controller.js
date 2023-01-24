@@ -13,6 +13,17 @@ class PictureController{
          res.json({pic: 'Not Ok'});
       }
    }
+
+   async getPictures(rec, res){
+      try{
+         const all_pic = await Model.find({});
+         res.json(all_pic);
+      }catch(e){
+         res.json({pic:'error'});
+      }     
+   }
+
+
 }
 
 module.exports = new PictureController()
